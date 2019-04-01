@@ -6,7 +6,6 @@ public interface IncidentDataSource {
 
     void getListIncident(GetIncidentCallBack callBack);
 
-
     interface GetIncidentCallBack{
         void onIncidentLoaded (Incident dataIncidents);
         void onDataNotAvailable (String errorMessage);
