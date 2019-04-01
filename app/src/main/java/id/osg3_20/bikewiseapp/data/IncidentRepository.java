@@ -11,7 +11,7 @@ public class IncidentRepository implements IncidentDataSource{
     private IncidentLocalDataSource incidentLocalDataSource;
     private IncidentRemoteDataSource incidentRemoteDataSource;
 
-    public IncidentRepository (IncidentLocalDataSource incidentLocalDataSource, IncidentRemoteDataSource incidentRemoteDataSource){
+    public IncidentRepository (IncidentRemoteDataSource incidentRemoteDataSource, IncidentLocalDataSource incidentLocalDataSource){
         this.incidentLocalDataSource = incidentLocalDataSource;
         this.incidentRemoteDataSource = incidentRemoteDataSource;
     }
