@@ -20,40 +20,57 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
             android:background="@drawable/rounded_white_backgroud"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:paddingStart="16dp"
             android:paddingTop="4dp"
             android:paddingEnd="16dp"
-            android:paddingBottom="4dp">
+            android:paddingBottom="4dp"
+            android:weightSum="3">
 
-            <TextView
-                android:id="@+id/tv_title"
+            <ImageView
+                android:id="@+id/image_thumb"
+                android:layout_width="100dp"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:src="@color/colorPrimaryDark"
+                android:layout_gravity="center"/>
+
+            <LinearLayout
+                android:layout_weight="2"
+                android:layout_marginLeft="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="@{incidentDetailVM.title}"
-                android:textSize="12pt" />
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="@{incidentDetailVM.address}"
-                android:textSize="8pt" />
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{incidentDetailVM.title}"
+                    android:textSize="12pt" />
+
+                <TextView
+                    android:id="@+id/tv_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{incidentDetailVM.address}"
+                    android:textSize="8pt" />
 
 
-            <TextView
-                android:id="@+id/tv_type"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:text="@{incidentDetailVM.type}"
-                android:textColor="@android:color/holo_orange_dark"
-                android:textSize="8pt" />
+                <TextView
+                    android:id="@+id/tv_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="@{incidentDetailVM.type}"
+                    android:textColor="@android:color/holo_orange_dark"
+                    android:textSize="8pt" />
 
+            </LinearLayout>
 
         </LinearLayout>
 

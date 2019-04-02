@@ -32,4 +32,8 @@ public class IncidentViewModel {
             }
         });
     }
+
+    public void getIncident(String id) {
+
+    }
 }

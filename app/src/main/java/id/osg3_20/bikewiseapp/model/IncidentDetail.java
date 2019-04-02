@@ -10,7 +10,7 @@ import android.os.Parcelable;
 @Entity(tableName = "incidents")
 public class IncidentDetail implements Parcelable {
 
-    public IncidentDetail(int mId, String title, String description, String address, String occurred_at, String updated_at, String image_url, String type) {
+    public IncidentDetail(int mId, String title, String description, String address, String occurred_at, String updated_at, String image_url, String image_url_thumb, String type) {
         this.mId=mId;
         this.title=title;
         this.description=description;
@@ -18,6 +18,7 @@ public class IncidentDetail implements Parcelable {
         this.occurred_at=occurred_at;
         this.updated_at=updated_at;
         this.image_url=image_url;
+        this.image_url_thumb=image_url_thumb;
         this.type=type;
     }
 
@@ -41,6 +42,9 @@ public class IncidentDetail implements Parcelable {
 
     @ColumnInfo(name = "image_url")
     public String image_url;
+
+    @ColumnInfo(name = "image_url_thumb")
+    public String image_url_thumb;
 
     @ColumnInfo(name = "type")
     public String type;
@@ -69,6 +73,10 @@ public class IncidentDetail implements Parcelable {
         return image_url;
     }
 
+    public String getImage_url_thumb() {
+        return image_url_thumb;
+    }
+
     public String getType() {
         return type;
     }
@@ -88,6 +96,7 @@ public class IncidentDetail implements Parcelable {
         dest.writeString(this.occurred_at);
         dest.writeString(this.updated_at);
         dest.writeString(this.image_url);
+        dest.writeString(this.image_url_thumb);
         dest.writeString(this.type);
     }
 
@@ -99,6 +108,7 @@ public class IncidentDetail implements Parcelable {
         this.occurred_at = in.readString();
         this.updated_at = in.readString();
         this.image_url = in.readString();
+        this.image_url_thumb = in.readString();
         this.type = in.readString();
     }
 

@@ -7,7 +7,7 @@ import retrofit2.http.Query;
 
 public interface ApiInterface {
 
-    @GET("/api/v2/incidents")
+    @GET("/incidents")
     Call<Incident> getAllIncident();
 
 
