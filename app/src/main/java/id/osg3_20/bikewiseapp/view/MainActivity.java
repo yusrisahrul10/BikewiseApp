@@ -1,5 +1,6 @@
 package id.osg3_20.bikewiseapp.view;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
@@ -15,6 +16,7 @@ import id.osg3_20.bikewiseapp.R;
 import id.osg3_20.bikewiseapp.adapter.IncidentAdapter;
 import id.osg3_20.bikewiseapp.model.IncidentDetail;
 import id.osg3_20.bikewiseapp.navigator.IncidentNavigator;
+import id.osg3_20.bikewiseapp.navigator.OnRecyclerItemClickLister;
 import id.osg3_20.bikewiseapp.viewmodel.IncidentViewModel;
 
 public class MainActivity extends AppCompatActivity implements IncidentNavigator {
@@ -37,6 +39,12 @@ public class MainActivity extends AppCompatActivity implements IncidentNavigator
         mIncidentViewModel.getListIncident();
         initAdapter();
 
+        adapter.setOnRecyclerItemClickLister(new OnRecyclerItemClickLister() {
+            @Override
+            public void onItemClick(RecyclerView.Adapter adapter, int position) {
+                goToDetail(position);
+            }
+        });
     }
 
     @Override
@@ -55,5 +63,17 @@ public class MainActivity extends AppCompatActivity implements IncidentNavigator
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         mRecyclerView.setAdapter(adapter);
+    }
+
+    private void goToDetail(int position) {
+        IncidentDetail incidentDetail = adapter.getIncidetDetail(position);
+
+        Intent intent = new Intent (this, IncidentDetailActivity.class);
+        intent.putExtra("title", incidentDetail.getTitle());
+        intent.putExtra("image_url", incidentDetail.getImage_url());
+        intent.putExtra("description", incidentDetail.getDescription());
+        intent.putExtra("address", incidentDetail.getAddress());
+        intent.putExtra("type", incidentDetail.getType());
+        startActivity(intent);
     }
 }
